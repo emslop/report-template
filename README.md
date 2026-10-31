@@ -9,7 +9,7 @@ AGENTS.md                       Общие инструкции агенту
 script/AGENTS.md                Требования к тексту выступления
 slides/AGENTS.md                Требования к описанию слайдов
 presentation/AGENTS.md          Требования к TeX-вёрстке
-presentation/presentation.tex  Титульный и один содержательный слайд
+presentation/presentation.tex   Титульный и один содержательный слайд
 ```
 
 ## Работа
