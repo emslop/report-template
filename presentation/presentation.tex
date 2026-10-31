@@ -1,0 +1,77 @@
+% !TeX program = xelatex
+% Adapted from https://github.com/emslop/laser-welding-biotissues/blob/main/presentation.tex
+% Source-only template: no PDF build is required.
+\documentclass[aspectratio=169,11pt]{beamer}
+\usepackage{fontspec}
+\setsansfont{Liberation Sans}
+\setmainfont{Liberation Sans}
+\setmonofont{Liberation Mono}
+\usepackage{polyglossia}
+\setdefaultlanguage{russian}
+\usepackage{amsmath,booktabs,tabularx,array,graphicx,tikz,pgfplots,pgfpages,etoolbox}
+\usetikzlibrary{arrows.meta,positioning,calc}
+\pgfplotsset{compat=1.18}
+\graphicspath{{./}{images/}{figures/}}
+\usefonttheme{professionalfonts}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{headline}{}
+\setbeamertemplate{frametitle}{\vspace{2mm}\centering\bfseries\insertframetitle\par}
+\setbeamercolor{normal text}{fg=black,bg=white}
+\setbeamercolor{frametitle}{fg=black,bg=white}
+\setbeamercolor{itemize item}{fg=black}
+\setbeamercolor{enumerate item}{fg=black}
+\setbeamertemplate{itemize item}{\textemdash}
+\setbeamertemplate{itemize subitem}{\textemdash}
+\setbeamertemplate{footline}{\hfill\insertframenumber/\inserttotalframenumber\hspace{5mm}\vspace{3mm}}
+\setbeamersize{text margin left=7mm,text margin right=7mm}
+\setlength{\parskip}{3pt}
+\BeforeBeginEnvironment{frame}{\setcounter{figure}{0}\setcounter{table}{0}\setcounter{equation}{0}}
+\newcommand{\figcap}[1]{\par\refstepcounter{figure}{\centering\normalfont\mdseries\upshape\fontsize{9}{10.8}\selectfont Рисунок~\thefigure~--- #1\par}\vspace{1mm}}
+\newcommand{\tabcap}[1]{\par\refstepcounter{table}{\centering\normalfont\mdseries\upshape\fontsize{9}{10.8}\selectfont Таблица~\thetable~--- #1\par}\vspace{2mm}}
+\newcommand{\pngimage}[2]{\includegraphics[width=\linewidth,height=#2,keepaspectratio]{#1}}
+\begin{document}
+\begin{frame}[plain]
+\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north,inner sep=0pt] at ([yshift=-3.3mm]current page.north) {\parbox{\dimexpr\paperwidth-12mm\relax}{\centering\fontsize{8.5}{10.2}\selectfont\setlength{\parskip}{0pt}%
+\mbox{МИНОБРНАУКИ РОССИИ}\\[2pt]
+\mbox{Федеральное государственное автономное образовательное учреждение высшего образования}\\
+\mbox{«Национальный исследовательский университет}\\
+\mbox{«Московский институт электронной техники»}\par}};
+\node[inner sep=0pt] at ([yshift=-20.8mm]current page.north) {{\fontsize{8.5}{10.2}\selectfont Институт биомедицинских систем}};
+\node[inner sep=0pt] at ([yshift=-33.8mm]current page.north) {{\fontsize{14}{17}\selectfont Иванов Иван Иванович}};
+\node[inner sep=0pt] at ([yshift=-52mm]current page.north) {\parbox{\dimexpr\paperwidth-12mm\relax}{\centering\fontsize{15}{17.5}\selectfont\bfseries\setlength{\parskip}{0pt}%
+Шаблон презентации\par}};
+\node[anchor=east,inner sep=0pt] at ([xshift=-9mm,yshift=13.8mm]current page.south east) {{\fontsize{8.5}{10.2}\selectfont Руководитель: к.ф.-м.н., доцент Потапов Д.А.}};
+\node[inner sep=0pt] at ([yshift=4mm]current page.south) {{\fontsize{8.5}{10.2}\selectfont Москва 2026}};
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Структура системы с обратной связью}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.55\linewidth}
+\centering\pngimage{example-system.png}{35mm}
+\par\vspace{1mm}
+{\fontsize{8.5}{10.2}\selectfont
+1 — источник энергии; 2 — преобразователь;\\
+3 — нагрузка; 4 — датчик; 5 — блок управления\par}
+\figcap{Условная система с обратной связью}
+\end{column}
+\begin{column}{0.42\linewidth}
+\tabcap{Назначение компонентов системы}
+{\fontsize{10}{12}\selectfont
+\begin{tabularx}{\linewidth}{@{}>{\centering\arraybackslash}p{6mm}>{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{№} & \textbf{Назначение} \\
+\midrule
+1 & Подача энергии. \\
+2 & Преобразование энергии. \\
+3 & Выполнение полезной работы. \\
+4 & Измерение выходной величины. \\
+5 & Формирование управляющего сигнала. \\
+\bottomrule
+\end{tabularx}}
+\end{column}
+\end{columns}
+\note{Учебный пример оформления, а не схема конкретного прибора и не экспериментальные данные. Верхняя цепь показывает передачу энергии; нижняя ветвь — измерение и управление.}
+\end{frame}
+\end{document}
